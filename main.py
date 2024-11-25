@@ -13,14 +13,14 @@ def main(config):
     cudnn.benchmark = True
     if (not os.path.exists(config.model_save_path)):
         mkdir(config.model_save_path)
-    solver = Solver(vars(config))
+    model = Udt(vars(config))
 
     if config.mode == 'train':
-        solver.train()
+        model.train()
     elif config.mode == 'udt':
-        solver.udt()
+        model.udt()
 
-    return solver
+    return model
 
 
 if __name__ == '__main__':
