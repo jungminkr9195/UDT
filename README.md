@@ -8,10 +8,10 @@ The main contributions of this paper are summarized as follows:
 
 ![Structure](https://github.com/user-attachments/assets/9e418c70-e62d-4859-9adb-ec01993b5843)
 
-## Train
+## Start UDT
 <pre>
 <code>
-sh ./scripts/SMD.sh --mode train
+sh ./scripts/SMD.sh
 </code>
 </pre>
 
