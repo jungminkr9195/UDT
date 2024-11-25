@@ -161,9 +161,6 @@ class WADISegLoader(object):
         self.win_size = win_size
         self.scaler = StandardScaler()
         data = np.load(data_path + "/train_scaled.npy", allow_pickle=True)
-        # self.scaler.fit(data)
-        # data = self.scaler.transform(data)
-        # test_data = np.load(data_path + "/test_scaled.npy", allow_pickle=True)
         self.test = np.load(data_path + "/test_scaled.npy", allow_pickle=True)
         self.train = data
         data_len = len(self.train)
@@ -199,10 +196,6 @@ class WADISegLoader(object):
 def get_loader_segment(data_path, batch_size, win_size=100, step=100, mode='train', dataset='KDD'):
     if (dataset == 'SMD'):
         dataset = SMDSegLoader(data_path, win_size, step, mode)
-    elif (dataset == 'MSL'):
-        dataset = MSLSegLoader(data_path, win_size, 1, mode)
-    elif (dataset == 'SMAP'):
-        dataset = SMAPSegLoader(data_path, win_size, 1, mode)
     elif (dataset == 'PSM'):
         dataset = PSMSegLoader(data_path, win_size, step, mode)
     elif (dataset == 'SWaT'):
@@ -219,77 +212,3 @@ def get_loader_segment(data_path, batch_size, win_size=100, step=100, mode='trai
                              shuffle=shuffle,
                              num_workers=0)
     return data_loader
-
-
-class PAMAPLoader(Dataset):
-    def __init__(self, seed, win_size, mode='train'):
-        super().__init__()
-        # self.args = args
-        df = pd.read_csv('./dataset/PAMAP/PAMAP1.csv')
-
-        labels = []
-        target_data = df['label']
-
-        # windowing
-        last_idx = len(df) - 1
-        window_set = []
-        for i in range(0, df.shape[0], win_size):
-            start_idx = i
-            end_idx = i + win_size
-            if end_idx > last_idx:
-                break
-            else:
-                if target_data[start_idx:end_idx].sum() >= 1:
-                    labels.append(1)
-                else:
-                    labels.append(0)
-                window = df.iloc[start_idx:end_idx].values
-                window_set.append(window)
-        normal_idx = np.where(np.array(labels) == 0)[0]
-        abnormal_idx = np.where(np.array(labels) == 1)[0]
-
-        window_set = np.array(window_set)
-
-        normal_window = window_set[normal_idx, :, :]
-        abnormal_window = window_set[abnormal_idx, :, :]
-
-        normal_train_valid_window, normal_test_window = train_test_split(normal_window, test_size=0.3, random_state=seed)
-        normal_train_valid_window = normal_train_valid_window[:, :, 1:]
-        scaler = StandardScaler()
-        normal_train_valid_window1 = []
-        for ss in range(win_size):
-            scaler.partial_fit(normal_train_valid_window[:, ss, :])
-        for ss in range(win_size):
-            normal_train_valid_window1.append(scaler.transform(normal_train_valid_window[:, ss, :]).reshape(normal_train_valid_window.shape[0], 1, normal_train_valid_window.shape[2]))
-        normal_train_valid_window1 = np.concatenate(normal_train_valid_window1, axis=1)
-
-        # 시드별로 정상 학습/검증 데이터 분할
-        train_set, valid_set = train_test_split(normal_train_valid_window1, test_size=0.3, random_state=seed)
-
-        # train_set = train_set[:, :, 1:]
-        # valid_set = valid_set[:, :, 1:]
-
-        # 정상 평가 데이터와 이상 데이터 컨캣
-        test_set = np.concatenate((normal_test_window, abnormal_window), axis=0)
-        self.test_labels = test_set[:, :, 0].reshape(-1)
-        test_set = test_set[:, :, 1:]  # label 제거
-        test_set1 = []
-        for ss in range(win_size):
-            test_set1.append(scaler.transform(test_set[:, ss, :]).reshape(test_set.shape[0], 1, test_set.shape[2]))
-        test_set1 = np.concatenate(test_set1, axis=1)
-
-        if mode == 'train':
-            self.var_data = train_set
-        elif mode == 'valid':
-            self.var_data = valid_set
-        elif mode == 'test':
-            self.var_data = test_set1
-        # else:
-        #     self.var_data = thr_set
-
-    def __len__(self):
-        return len(self.var_data)
-
-    def __getitem__(self, idx):
-        input_values = torch.tensor(self.var_data, dtype=torch.float)
-        return input_values[idx]
