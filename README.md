@@ -8,13 +8,6 @@ The main contributions of this paper are summarized as follows:
 
 ![Structure](https://github.com/user-attachments/assets/9e418c70-e62d-4859-9adb-ec01993b5843)
 
-Especially, we use anomaly transformer proposed by Xu et al, 2021 as backbone model with benchmark datasets. Therefore, we used their repository as the base framework for this work.
 
-@inproceedings{
-xu2022anomaly,
-title={Anomaly Transformer: Time Series Anomaly Detection with Association Discrepancy},
-author={Jiehui Xu and Haixu Wu and Jianmin Wang and Mingsheng Long},
-booktitle={International Conference on Learning Representations},
-year={2022},
-url={https://openreview.net/forum?id=LzQQ89U1qm_}
-}
+
+Especially, we use anomaly transformer proposed by [Xu et al] (https://arxiv.org/abs/2110.02642), 2021 as backbone model with benchmark datasets. Therefore, we used [their repository] (https://github.com/thuml/Anomaly-Transformer) as the base framework for this work.
