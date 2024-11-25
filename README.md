@@ -7,5 +7,6 @@ The main contributions of this paper are summarized as follows:
 - We present the first attempt to construct a dynamic thresholding method using uncertainty quantification, applicable to a wide range of domains. Our method demonstrates performance improvements in time series anomaly detection by more effectively identifying misclassified samples near the fixed threshold, using uncertainty as a measure of the ambiguity of each sample. Additionally, we verify the pronounced effectiveness in more challenging scenarios where the distributions of normal data and anomalies are similar.
 
 ![Structure](https://github.com/user-attachments/assets/9e418c70-e62d-4859-9adb-ec01993b5843)
-\n\n
+
+
 Especially, we use anomaly transformer proposed by [Xu et al, 2021](https://arxiv.org/abs/2110.02642) as backbone model with benchmark datasets. Therefore, we used [their repository](https://github.com/thuml/Anomaly-Transformer) as the base framework for this work.
