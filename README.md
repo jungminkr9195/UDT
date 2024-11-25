@@ -12,4 +12,4 @@ The main contributions of this paper are summarized as follows:
 Especially, we use anomaly transformer proposed by [Xu et al, 2021](https://arxiv.org/abs/2110.02642) as backbone model with benchmark datasets. Therefore, we used [their repository](https://github.com/thuml/Anomaly-Transformer) as the base framework for this work.
 
 ## Contact
-If you have any questions, please contact (jungmin9195@korea.ac.kr)
+If you have any questions, please contact jungmin9195@korea.ac.kr
