@@ -1,6 +1,4 @@
 # UDT 
-UDT: Uncertainty-Informed Dynamic Threshold
-
 A key challenge in anomaly detection lies in setting an optimal threshold for anomaly scores to distinguish anomalies from normal data. In this paper, we propose UDT, which dynamically adjusts the thresholds using uncertainty of each sample.
 The main contributions of this paper are summarized as follows:
 - We improve existing methods for uncertainty quantification in anomaly detection by addressing potential scale differences between aleatoric and epistemic uncertainties. Our approach adjusts the scale of these uncertainties and performs a weighted sum, ensuring accurate representation of both types of uncertainties. 
