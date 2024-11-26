@@ -1,5 +1,6 @@
 # UDT 
-A key challenge in anomaly detection lies in setting an optimal threshold for anomaly scores to distinguish anomalies from normal data. In this paper, we propose UDT, which dynamically adjusts the thresholds using uncertainty of each sample. <br/><br/>
+A key challenge in anomaly detection lies in setting an optimal threshold for anomaly scores to distinguish anomalies from normal data. <br/>
+In this paper, we propose UDT, which dynamically adjusts the thresholds using uncertainty of each sample. <br/><br/>
 The main contributions of this paper are summarized as follows:
 - We improve existing methods for uncertainty quantification in anomaly detection by addressing potential scale differences between aleatoric and epistemic uncertainties. Our approach adjusts the scale of these uncertainties and performs a weighted sum, ensuring accurate representation of both types of uncertainties. 
 - We present the first attempt to construct a dynamic thresholding method using uncertainty quantification, applicable to a wide range of domains. Our method demonstrates performance improvements in time series anomaly detection by more effectively identifying misclassified samples near the fixed threshold, using uncertainty as a measure of the ambiguity of each sample.
