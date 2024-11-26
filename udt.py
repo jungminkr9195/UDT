@@ -9,10 +9,7 @@ from utils.utils import *
 from model.AnomalyTransformer import AnomalyTransformer
 from data_factory.data_loader import get_loader_segment
 from tqdm import tqdm
-from sklearn.metrics import precision_recall_fscore_support
-from sklearn.metrics import accuracy_score, confusion_matrix
-import warnings
-warnings.filterwarnings('ignore')
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 
 def my_kl_loss(p, q):
