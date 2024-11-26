@@ -2,7 +2,7 @@ import os
 import argparse
 from torch.backends import cudnn
 from utils.utils import *
-from solver import Solver
+from udt import Udt
 
 
 def str2bool(v):
