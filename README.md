@@ -9,6 +9,9 @@ The main contributions of this paper are summarized as follows:
 ## Start UDT
 <pre>
 <code>
+sh ./scripts/SWaT.sh
+sh ./scripts/WADI.sh
+sh ./scripts/PSM.sh
 sh ./scripts/SMD.sh
 </code>
 </pre>
