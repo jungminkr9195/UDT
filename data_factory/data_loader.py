@@ -159,7 +159,6 @@ class WADISegLoader(object):
         self.mode = mode
         self.step = step
         self.win_size = win_size
-        self.scaler = StandardScaler()
         data = np.load(data_path + "/train_scaled.npy", allow_pickle=True)
         self.test = np.load(data_path + "/test_scaled.npy", allow_pickle=True)
         self.train = data
