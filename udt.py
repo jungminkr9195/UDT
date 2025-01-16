@@ -1,3 +1,6 @@
+# The script is based on the code of Anomaly-Transformer (https://github.com/thuml/Anomaly-Transformer)
+
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
