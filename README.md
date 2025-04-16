@@ -5,7 +5,7 @@ The main contributions of this paper are summarized as follows:
 - We improve existing methods for uncertainty quantification in anomaly detection by addressing potential scale differences between aleatoric and epistemic uncertainties. Our approach adjusts the scale of these uncertainties and performs a weighted sum, ensuring accurate representation of both types of uncertainties. 
 - We present the first attempt to construct a dynamic thresholding method using uncertainty quantification, applicable to a wide range of domains. Our method demonstrates performance improvements in time series anomaly detection by more effectively identifying misclassified samples near the fixed threshold, using uncertainty as a measure of the ambiguity of each sample.
 
-![Structure]([https://github.com/user-attachments/assets/9e418c70-e62d-4859-9adb-ec01993b5843](https://github.com/user-attachments/assets/69034b30-9006-4029-976a-ad988057e129))
+![Structure](https://github.com/user-attachments/assets/9e418c70-e62d-4859-9adb-ec01993b5843](https://github.com/user-attachments/assets/69034b30-9006-4029-976a-ad988057e129)
 
 ## Start UDT
 <pre>
